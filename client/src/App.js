@@ -1,15 +1,27 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import Footer from './components/footer/Footer';
+ 
 
 function App() {
   return (
-    <div className="App">
-      <header className="bg-blue-500 p-4 text-white">
-        <h1 className="text-3xl">MERN Stack with Tailwind CSS</h1>
-      </header>
-      <main className="p-8">
-        <h2 className="text-2xl">Welcome to the app</h2>
-      </main>
-    </div>
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            
+            <li>
+              <Link to="/footer">Footer</Link>
+            </li>
+          </ul>
+        </nav>
+
+        <Routes>
+          <Route path="/footer" element={<Footer />} />
+           
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
