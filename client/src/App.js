@@ -1,16 +1,20 @@
-import React from 'react';
+// src/App.js
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar/Navbar";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="bg-blue-500 p-4 text-white">
-        <h1 className="text-3xl">MERN Stack with Tailwind CSS</h1>
-      </header>
-      <main className="p-8">
-        <h2 className="text-2xl">Welcome to the app</h2>
-      </main>
-    </div>
+    <Router>
+      <div>
+        <Navbar />
+        <Routes>
+          <Route path="/Navbar" element={<div>About Page</div>} />
+          
+        </Routes>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
