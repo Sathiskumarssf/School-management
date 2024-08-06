@@ -1,4 +1,5 @@
 import React from 'react';
+import AddDetails from './Pages/addDetails/addDetails';
 
 function App() {
   return (
@@ -8,7 +9,9 @@ function App() {
       </header>
       <main className="p-8">
         <h2 className="text-2xl">Welcome to the app</h2>
+        <AddDetails/>
       </main>
+      
     </div>
   );
 }

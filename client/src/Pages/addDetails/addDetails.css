@@ -1,0 +1,132 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    width: 100%;
+    background-color: #ffffff;
+    background: linear-gradient(135deg, rgb(235,244,246),rgb(8,131,149));
+    align-items: center;
+    justify-content: center;
+    padding: 25px 30px;
+    border-radius: 15px;
+
+
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 75%;
+    padding: 50px 60px;
+    background-color: #dad6d6;
+    border-radius: 15px;
+    margin: auto;
+
+}
+.container form .user-details{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+}
+form .user-details .input-box{
+    margin-bottom: 15px;
+    width: calc(100%/2 - 20px);
+}
+.user-details .input-box .details{
+    font-weight: 500;
+    margin-bottom: 5px;
+    margin: 20px 0px 12px 0;
+    margin-bottom: 15px;
+    display: block;
+}
+.user-details .input-box input{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 8px;
+    border:1px solid #a39b9b;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transform: all 0.3s ease;
+
+}
+.user-details .input-box input:focus,
+.user-details .input-box input:valid{
+    border-color: #a39b9b;
+}
+
+form .gender-details .gender-title{
+    font-size: 16px;
+    font-weight: 500;
+
+
+}
+form .gender-details .options{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 8px;
+    border:1px solid #a39b9b;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transform: all 0.3s ease;
+}
+form .button{
+    height: 45px;
+    margin: 20px 0px;
+
+}
+
+form .button input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color:  #ffffff;
+    background: linear-gradient(135deg, rgb(235,244,246),rgb(8,131,149));
+    transition: transform 0.3s ease;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 500;
+
+}
+form .button input:hover{
+    background: linear-gradient(135deg, rgb(235,244,246),rgb(8,131,149));
+    transform: scale(1.05); 
+
+}
+h1 {
+    font-size: 35px;
+    font-weight: 500;
+}
+
+
+/* input {
+    padding: 8px;
+    font-size: 1em;
+} */
+
+@media (max-width: 584px){
+    .container{
+        max-width:100% ;
+    }
+    form .user-details .input-box{
+        margin-bottom: 15px;
+        width: 100%;
+    }
+    .container form .user-details{
+        max-height: 300px;
+        overflow-y: scroll;
+    }
+    .user-details::-webkit-scrollbar{
+        width: 0;
+
+    }
+}
