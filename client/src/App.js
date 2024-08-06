@@ -1,16 +1,33 @@
-import React from 'react';
+ 
 
-function App() {
+import AddDetails from './Pages/addDetails/addDetails';
+
+
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
+
+ 
+const App = () => {
   return (
-    <div className="App">
-      <header className="bg-blue-500 p-4 text-white">
-        <h1 className="text-3xl">MERN Stack with Tailwind CSS</h1>
-      </header>
-      <main className="p-8">
-        <h2 className="text-2xl">Welcome to the app</h2>
-      </main>
-    </div>
+    <Router>
+      <div>
+        
+        <Navbar />
+        <AddDetails/>
+        <Footer/>
+        
+        <Routes>
+          <Route path="/Navbar" element={<div>About Page</div>} />
+          <Route path="/AddDetails" element={<div>AddDetails</div>} />
+ 
+          
+        </Routes>
+       
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
