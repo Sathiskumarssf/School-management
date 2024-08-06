@@ -6,7 +6,7 @@ import twitterIcon from '../../assets/twitter.png';
 
 const Footer = () => {
   return (
-    <footer className="bg-blue-500 py-10">
+    <footer className="bg-customColor2 py-10">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between px-4">
         <div className="md:w-1/2 mb-8 md:mb-0">
           <h1 className="text-2xl font-semibold mb-4">Follow To Talk</h1>
