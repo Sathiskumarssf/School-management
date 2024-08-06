@@ -54,9 +54,9 @@ const AddDetails = () => {
 
   return (
     <>
-    { role === "teacher"?  
+    { role === "student"?  
     <>
-    <div className="container" >
+    <div className="box" >
     <h1 className="title">Teacher</h1>
     <form >
         <div className="user-details">
@@ -98,13 +98,12 @@ const AddDetails = () => {
             name="gender"
             value={profileData.gender}
             onChange={handleChange}
-            class="options"
+            className="options"
           >
             <option value="">Please select one…</option>
             <option value="female">Female</option>
             <option value="male">Male</option>
             <option value="non-binary">Non-Binary</option>
-            <option value="other">Other</option>
             <option value="prefer-not-to-answer">Prefer not to answer</option>
           </select>
         </div>
@@ -165,7 +164,7 @@ const AddDetails = () => {
       </>:
 
       <>
-       <div className="container" >
+       <div className="box" >
     <h1 className="title">Student</h1>
     <form >
         <div className="user-details">
@@ -174,6 +173,7 @@ const AddDetails = () => {
           <input
             type="text"
             name="firstName"
+             placeholder="Enter your first name"
             value={profileData.firstName}
             onChange={handleChange}
           />
@@ -184,6 +184,7 @@ const AddDetails = () => {
           <input
             type="text"
             name="lastName"
+             placeholder="Enter your last name"
             value={profileData.lastName}
             onChange={handleChange}
           />
@@ -193,6 +194,7 @@ const AddDetails = () => {
           <input
             type="text"
             name="fathersName"
+             placeholder="Enter your fathers name"
             value={profileData.fathersName}
             onChange={handleChange}
           />
@@ -202,16 +204,18 @@ const AddDetails = () => {
           <input
             type="text"
             name="mothersName"
+             placeholder="Enter your mothers name"
             value={profileData.mothersName}
             onChange={handleChange}
           />
         </div>
         <div className="input-box">
-          <span class="details">student Number:</span>
+          <span class="details">Student Number:</span>
 
           <input
             type="text"
             name="studentNumber"
+             placeholder="Enter your student number"
             value={profileData.studentNumber}
             onChange={handleChange}
           />
@@ -223,13 +227,12 @@ const AddDetails = () => {
             name="gender"
             value={profileData.gender}
             onChange={handleChange}
-            class="options"
+            className="options"
           >
             <option value="">Please select one…</option>
             <option value="female">Female</option>
             <option value="male">Male</option>
             <option value="non-binary">Non-Binary</option>
-            <option value="other">Other</option>
             <option value="prefer-not-to-answer">Prefer not to answer</option>
           </select>
         </div>
@@ -250,6 +253,7 @@ const AddDetails = () => {
           <input
             type="email"
             name="email"
+            placeholder="Enter your email"
             value={profileData.email}
             onChange={handleChange}
           />
@@ -260,6 +264,7 @@ const AddDetails = () => {
           <input
             type="text"
             name="phone"
+            placeholder="Enter your phone number"
             value={profileData.phone}
             onChange={handleChange}
           />
@@ -269,6 +274,7 @@ const AddDetails = () => {
           <input
             type="text"
             name="address"
+            placeholder="Enter your address"
             value={profileData.address}
             onChange={handleChange}
           />
