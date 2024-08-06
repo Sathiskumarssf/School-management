@@ -1,3 +1,4 @@
+ 
 
 import AddDetails from './Pages/addDetails/addDetails';
 
@@ -7,18 +8,20 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 
-
+ 
 const App = () => {
   return (
     <Router>
       <div>
-        <AddDetails/>
+        
         <Navbar />
+        <AddDetails/>
         <Footer/>
         
         <Routes>
           <Route path="/Navbar" element={<div>About Page</div>} />
           <Route path="/AddDetails" element={<div>AddDetails</div>} />
+ 
           
         </Routes>
        
