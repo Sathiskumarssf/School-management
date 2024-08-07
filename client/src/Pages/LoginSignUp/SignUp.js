@@ -1,6 +1,7 @@
 import React, {  useState } from 'react';
 import { Link } from 'react-router-dom';
 import {useNavigate } from 'react-router-dom';
+import Footer from '../../components/Footer/Footer';
 
 
 
@@ -106,7 +107,7 @@ const handleSubmit = async (e) => {
 
     <div className="min-h-screen flex items-center justify-center bg-cover bg-center bg-customColor1 backdrop-blur-lg max-h-full w-full">
 
-      <div className="bg-white p-8 rounded-xl shadow-2xl w-full h-auto mt-20 max-w-md ">
+      <div className="bg-white p-8 mb-5 rounded-xl shadow-2xl w-full h-auto mt-20 max-w-md ">
         <h2 className="text-2xl font-bold mb-8 text-center  ">Sign Up</h2>
        
         <form onSubmit={handleSubmit}>
@@ -206,6 +207,8 @@ const handleSubmit = async (e) => {
         </p>
       </div>
     </div>
+       
+    <Footer/>
   
     </div>
   );

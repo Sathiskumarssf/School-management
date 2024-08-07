@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Footer from '../../components/Footer/Footer';
 
 const Login = () => {
   const [form, setForm] = useState({
@@ -102,6 +103,9 @@ const Login = () => {
       </div>
     </div>
 </div>
+
+
+   <Footer/>
 </div>
    
   );
