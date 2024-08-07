@@ -6,10 +6,12 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 5000;
 const userRoutes = require('./routes/user');
+const authLSuser = require('./routes/authLSuser');
 
 app.use(cors());
 app.use(express.json());
 app.use('/api/v1',userRoutes) //1st URL 2nd Route
+app.use('/api/v1',authLSuser) //LoginSignUp
 
 
 
@@ -24,3 +26,4 @@ connection.once('open', () => {
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
 });
+
