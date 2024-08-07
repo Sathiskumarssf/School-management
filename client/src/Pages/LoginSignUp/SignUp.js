@@ -1,6 +1,7 @@
 import React, {  useState } from 'react';
 import { Link } from 'react-router-dom';
 import {useNavigate } from 'react-router-dom';
+import Footer from '../../components/Footer/Footer';
 
 
 
@@ -85,9 +86,9 @@ const handleSubmit = async (e) => {
         <div className="text-white text-xl font-bold">SCHool</div>
 
         <div className="hidden md:flex space-x-4">
-          <a href="#about" className="text-white hover:text-gray-200">About</a>
-          <a href="#services" className="text-white hover:text-gray-200">Services</a>
-          <a href="#contact" className="text-white hover:text-gray-200">Contact</a>
+          <a href="http://localhost:3000/about" className="text-white hover:text-gray-200">About</a>
+          <a href="http://localhost:3000/services" className="text-white hover:text-gray-200">Services</a>
+          <a href="http://localhost:3000/contact" className="text-white hover:text-gray-200">Contact</a>
         </div>
         <div className="md:hidden">
           <button onClick={toggleMenu} className="text-white focus:outline-none">
@@ -212,7 +213,7 @@ const handleSubmit = async (e) => {
         </p>
       </div>
     </div>
-  
+    <Footer/>
     </div>
   );
 };

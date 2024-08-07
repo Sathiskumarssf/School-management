@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import {useNavigate } from 'react-router-dom';
+import Footer from '../../components/Footer/Footer';
 
 
 const Login = () => {
@@ -78,9 +79,9 @@ const Login = () => {
         <div className="text-white text-xl font-bold">SCHool</div>
 
         <div className="hidden md:flex space-x-4">
-          <a href="#about" className="text-white hover:text-gray-200">About</a>
-          <a href="#services" className="text-white hover:text-gray-200">Services</a>
-          <a href="#contact" className="text-white hover:text-gray-200">Contact</a>
+          <a href="http://localhost:3000/about" className="text-white hover:text-gray-200">About</a>
+          <a href="http://localhost:3000/services" className="text-white hover:text-gray-200">Services</a>
+          <a href="http://localhost:3000/contact" className="text-white hover:text-gray-200">Contact</a>
         </div>
         <div className="md:hidden">
           <button onClick={toggleMenu} className="text-white focus:outline-none">
@@ -146,6 +147,7 @@ const Login = () => {
       </div>
     </div>
 </div>
+<Footer/>
 </div>
    
   );
