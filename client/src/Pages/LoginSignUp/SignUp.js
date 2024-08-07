@@ -7,13 +7,15 @@ import {useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
 
+  const navigate = useNavigate();//inbuilt 
+
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-    const navigate = useNavigate();//inbuilt 
+ 
 
   const [form, setForm] = useState({
     role:'',
@@ -23,45 +25,46 @@ const SignUp = () => {
     confirmPassword: ''
   });
 
-  const handleChange = (e) => {
+ const handleChange = (e) => {
     const { name, value } = e.target;
     setForm({
       ...form,
-      [name]: value
+      [name]: value,
     });
   };
 const handleSubmit = async (e) => {
     e.preventDefault();
-
+    console.log('Form data:', form); // Log form data before sending
     // Add form validation logic here
     if (form.password !== form.confirmPassword) {
       alert("Passwords do not match!");
       return;
     }
 
-    if (form.password && form.confirmPassword && form.username && form.email && form.role) {
+    if (!form.password && !form.confirmPassword && !form.username && !form.email && !form.role) {
       alert("Please fill All values");
       return;
     }
 
     try {
-      const response = await fetch('', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          username: form.username,
-          email: form.email,
-          password: form.password,
-          role:form.role
-        })
+      const response = await fetch(' http://localhost:5000/api/v1/signup', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            role:form.role,
+            username: form.username,
+            email: form.email,
+            password: form.password,
+            
+          })
       });
 
       const data = await response.json();
       if (response.ok) {
         console.log('Form submitted successfully', data);
-        navigate('/');
+        navigate('/add-details',{ state: { token: data.token }});
 
         // Handle successful signup (e.g., redirect to login page, show success message)
       } else {
@@ -106,7 +109,7 @@ const handleSubmit = async (e) => {
 
     <div className="min-h-screen flex items-center justify-center bg-cover bg-center bg-customColor1 backdrop-blur-lg max-h-full w-full">
 
-      <div className="bg-white p-8 rounded-xl shadow-2xl w-full h-auto mt-20 max-w-md ">
+      <div className="bg-white p-8 rounded-xl shadow-2xl w-full h-auto mt-20 max-w-md mb-16 ">
         <h2 className="text-2xl font-bold mb-8 text-center  ">Sign Up</h2>
        
         <form onSubmit={handleSubmit}>
@@ -118,10 +121,13 @@ const handleSubmit = async (e) => {
             
             <div className="relative">
               <select
+                onChange={handleChange}
+                value={form.role}
                 id="role"
                 name="role"
                 className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
-              >
+              > 
+                <option value="">Select role</option>
                 <option value="teacher">Teacher</option>
                 <option value="student">Student</option>
                 <option value="principal">Principal</option>

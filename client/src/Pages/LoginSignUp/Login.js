@@ -1,6 +1,14 @@
+
+
 import React, { useEffect, useState } from 'react';
+import {useNavigate } from 'react-router-dom';
+
 
 const Login = () => {
+
+  const navigate = useNavigate();//inbuilt 
+
+
   const [form, setForm] = useState({
     email: '',
     password: ''
@@ -20,10 +28,46 @@ const Login = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+ const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add form validation and submission logic here
-    console.log('Form submitted', form);
+    
+    // Add form validation logic here
+    if (!form.password) {
+      alert("Passwords shuld be given ");
+      return;
+    }
+
+    if (!form.password &&  !form.email ) {
+      alert("Please fill All values");
+      return;
+    }
+
+    try {
+      const response = await fetch(' http://localhost:5000/api/v1/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            email: form.email,
+            password: form.password,
+          })
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        console.log('Login successfully', data);
+
+         navigate('/');
+
+      } else {
+        console.error('Error submitting form', data);
+        // Handle error (e.g., show error message)
+      }
+    } catch (error) {
+      console.error('error in login', error);
+      // Handle error (e.g., show error message)
+    }
   };
 
   return (
@@ -108,3 +152,4 @@ const Login = () => {
 };
 
 export default Login;
+
