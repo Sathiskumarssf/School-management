@@ -9,25 +9,7 @@ const AddDetails = () => {
    const navigate = useNavigate();//inbuilt 
    const [userDetails,setUserDetails]=useState({})
   
-  //  const [userRole,setUserRole]=useState(null)
-  
-
-//     //get token 
-//    const AddDetails = () => {
-//   const location = useLocation();
-//   const { token } = location.state || {};
-  
-//   useEffect(() => {
-//     if (token) {
-//       // Do something with the token, e.g., set it in headers for subsequent requests
-//       console.log("Token received:", token);
-//     } else {
-//       console.error("No token found in location state");
-//     }
-//   }, [token]);
-
-// };
-
+ 
 
  
 
@@ -71,6 +53,8 @@ const AddDetails = () => {
     lastName: "",
     studentNumber: "",
     // teacherId: "",
+    grade:"",
+    devition:"",
     gender: "",
     dob: "",
     fathersName: "",
@@ -227,6 +211,36 @@ const AddDetails = () => {
                   value={profileData.lastName}
                   onChange={handleChange}
                 />
+              </div>
+
+              <div className="gender-details">
+                <span className="gender-title">Grade:</span>
+                <select
+                  name="grade"
+                  value={profileData.grade}
+                  onChange={handleChange}
+                  className="options"
+                >
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                </select>
+              </div><div className="gender-details">
+                <span className="gender-title">Devition:</span>
+                <select
+                  name="devition"
+                  value={profileData.devition}
+                  onChange={handleChange}
+                  className="options"
+                >
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                  
+                </select>
               </div>
               <div className="input-box">
                 <span className="details">Fathers Name:</span>
