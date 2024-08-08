@@ -1,8 +1,52 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
+import axios from "axios";
 
 const Home = () => {
+   const [userDetails,setUserDetails]=useState({})
+
+
+
+   const [profileData, setProfileData] = useState({
+    email: "",
+    role:userDetails.role,
+  });
+
+     useEffect(() => {
+     const fetchUserDetails = async () => {
+      try {
+        const userinfo = JSON.parse(localStorage.getItem("userinfo"));
+        if (userinfo && userinfo.email) {
+          const email = userinfo.email;
+          const response = await axios.get(
+            `http://localhost:5000/api/v1/getUserByEmail/${email}`
+          );
+          if (response.data) {
+            setUserDetails(response.data);
+            setProfileData(prevData => ({
+              ...prevData,
+              ...response.data,
+              role: response.data.role // Update role based on response
+            }));
+            console.log('User details:', response.data);
+            console.log(response.data.role)
+          }
+        } else {
+          console.error("No user info found in local storage");
+        }
+      } catch (error) {
+        console.error("Failed to fetch user details", error);
+      }
+    };
+
+    fetchUserDetails();
+  }, []);
+  
+
+
+
+
   const [currentSection, setCurrentSection] = useState("Timetable");
   const [currentGrade, setCurrentGrade] = useState("6");
   const [currentDivision, setCurrentDivision] = useState("B");
@@ -99,7 +143,7 @@ const Home = () => {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <div className="flex-grow w-full">
-        <nav className="w-full h-5 bg-customColor3 fixed z-50 p-5 flex justify-around items-center">
+        <nav className="w-full h-1 bg-customColor3 mt-14 fixed z-50 p-5 flex justify-around items-center">
           {Object.keys(sections).map((section) => (
             <a
               href="#"
@@ -115,11 +159,11 @@ const Home = () => {
           ))}
         </nav>
         {/* body */}
-        <div className="mt-16 p-5">
+        <div className="mt-20 p-5">
           {sections[currentSection]}
         </div>
       </div>
-      <Footer />
+     
     </div>
   );
 };
