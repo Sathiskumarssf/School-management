@@ -14,7 +14,10 @@ exports.signUp = async(req,res)=>{
     const{ role,username, email, password}=req.body;
     try {
        const LSuser = new LSModal ({ username, email, password,role}); 
-       await LSuser.save();
+ 
+       await LSuser.save(); 
+ 
+ 
         // You can uncomment the following lines if you want to include token generation
         const token = jwt.sign({ id: LSuser._id }, process.env.JWT_SECRET, {
             expiresIn: "1h",
@@ -59,4 +62,3 @@ exports.getUserByEmail = async (req, res) => {
     res.status(500).json({ error: "Failed to fetch" });
   }
 };
-

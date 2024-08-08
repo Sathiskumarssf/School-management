@@ -2,6 +2,7 @@
 import React, {  useState } from 'react';
 import { Link } from 'react-router-dom';
 import {useNavigate } from 'react-router-dom';
+import Footer from '../../components/Footer/Footer';
 
 
 
@@ -65,9 +66,9 @@ const handleSubmit = async (e) => {
       const data = await response.json();
       if (response.ok) {
         console.log('Form submitted successfully', data);
-// On successful signup
-localStorage.setItem("userinfo", JSON.stringify({ email: form.email }));
-navigate('/add-details');
+ 
+            localStorage.setItem("userinfo", JSON.stringify({ email: form.email }));
+            navigate('/AddDetails');
 
 
         // Handle successful signup (e.g., redirect to login page, show success message)
@@ -89,9 +90,9 @@ navigate('/add-details');
         <div className="text-white text-xl font-bold">SCHool</div>
 
         <div className="hidden md:flex space-x-4">
-          <a href="#about" className="text-white hover:text-gray-200">About</a>
-          <a href="#services" className="text-white hover:text-gray-200">Services</a>
-          <a href="#contact" className="text-white hover:text-gray-200">Contact</a>
+        < a href="http://localhost:3000/about" className="block text-white hover:text-gray-200 p-2">About</a>
+          <a href="http://localhost:3000/services" className="block text-white hover:text-gray-200 p-2">Services</a>
+          <a href="http://localhost:3000/contect" className="block text-white hover:text-gray-200 p-2">Contact</a>
         </div>
         <div className="md:hidden">
           <button onClick={toggleMenu} className="text-white focus:outline-none">
@@ -216,7 +217,7 @@ navigate('/add-details');
         </p>
       </div>
     </div>
-  
+    <Footer/>
     </div>
   );
 };

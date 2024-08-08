@@ -164,7 +164,7 @@ const Home = () => {
           {sections[currentSection]}
         </div>
       </div>
-     
+     <Footer/>
     </div>
   );
 };

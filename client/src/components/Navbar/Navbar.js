@@ -23,6 +23,12 @@ function Navbar() {
           <Link to="/about" className="text-white hover:text-gray-200">
             About
           </Link>
+          <Link to="/contect" className="text-white hover:text-gray-200">
+         Contect
+          </Link>
+          <Link to="/services" className="text-white hover:text-gray-200">
+            About
+          </Link>
          
          
         </div>
