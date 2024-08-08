@@ -1,4 +1,15 @@
+
+
+
+const jwt = require('jsonwebtoken');
+const LSModal = require('../models/LSModals/LSModal');
+require('dotenv').config();
+
+
+
+
 //SignUp/// http://localhost:5000/api/v1/signup
+
 exports.signUp = async(req,res)=>{
     const{ role,username, email, password}=req.body;
     try {
