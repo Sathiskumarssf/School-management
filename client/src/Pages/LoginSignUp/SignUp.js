@@ -1,7 +1,8 @@
 import React, {  useState } from 'react';
 import { Link } from 'react-router-dom';
 import {useNavigate } from 'react-router-dom';
-
+import Footer from '../../components/Footer/Footer';
+import logo from "../../assets/logo.png"
 
 
 
@@ -80,14 +81,14 @@ const handleSubmit = async (e) => {
   return (
     
     <div>
-     <nav className="bg-customColor2 p-4 fixed w-full top-0 z-50">
+     <nav className="bg-customColor2 p-1 fixed w-full top-0 z-50">
       <div className="container mx-auto flex justify-between items-center">
-        <div className="text-white text-xl font-bold">SCHool</div>
-
+      <img src={logo} alt="Student Management Logo" className="w-14 h-14 " />
+      Student Management
         <div className="hidden md:flex space-x-4">
-          <a href="#about" className="text-white hover:text-gray-200">About</a>
-          <a href="#services" className="text-white hover:text-gray-200">Services</a>
-          <a href="#contact" className="text-white hover:text-gray-200">Contact</a>
+          <a href="http://localhost:3000/about" className="text-white hover:text-gray-200">About</a>
+          <a href="http://localhost:3000/services" className="text-white hover:text-gray-200">Services</a>
+          <a href="http://localhost:3000/contect" className="text-white hover:text-gray-200">Contact</a>
         </div>
         <div className="md:hidden">
           <button onClick={toggleMenu} className="text-white focus:outline-none">
@@ -212,7 +213,7 @@ const handleSubmit = async (e) => {
         </p>
       </div>
     </div>
-  
+    <Footer/>
     </div>
   );
 };
