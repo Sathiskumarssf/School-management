@@ -16,6 +16,18 @@ const studentSchema= mongoose.Schema({
         type:String,
         required:[true, "Please enter your student number"]
     },
+
+    grade:{
+        type:String,
+        required:[true, "Please enter your student number"]
+    },
+
+    devition:{
+        type:String,
+        required:[true,"Please enter your phone number."]
+
+    },
+    
     role:{
         type: String,
         default:"Student"
