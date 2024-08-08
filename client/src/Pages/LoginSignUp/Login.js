@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import {useNavigate } from 'react-router-dom';
+import Footer from '../../components/Footer/Footer';
 
 
 const Login = () => {
@@ -93,9 +94,9 @@ const Login = () => {
       </div>
       {isOpen && (
         <div className="md:hidden">
-          <a href="#about" className="block text-white hover:text-gray-200 p-2">About</a>
-          <a href="#services" className="block text-white hover:text-gray-200 p-2">Services</a>
-          <a href="#contact" className="block text-white hover:text-gray-200 p-2">Contact</a>
+          <a href="http://localhost:3000/about" className="block text-white hover:text-gray-200 p-2">About</a>
+          <a href="http://localhost:3000/services" className="block text-white hover:text-gray-200 p-2">Services</a>
+          <a href="http://localhost:3000/contect" className="block text-white hover:text-gray-200 p-2">Contact</a>
         </div>
       )}
     </nav>
@@ -147,6 +148,7 @@ const Login = () => {
       </div>
     </div>
 </div>
+  <Footer/>
 </div>
    
   );
