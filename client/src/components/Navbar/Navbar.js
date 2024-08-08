@@ -6,7 +6,7 @@ import logo from "../../assets/logo.png"
 
 function Navbar() {
   return (
-    <nav className="bg-customColor2 p-4">
+    <nav className="bg-customColor2 w-full fixed z-50 p-4">
       <div className="container mx-auto flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center space-x-2">

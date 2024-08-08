@@ -64,7 +64,10 @@ const handleSubmit = async (e) => {
       const data = await response.json();
       if (response.ok) {
         console.log('Form submitted successfully', data);
-        navigate('/add-details',{ state: { token: data.token }});
+// On successful signup
+localStorage.setItem("userinfo", JSON.stringify({ email: form.email }));
+navigate('/add-details');
+
 
         // Handle successful signup (e.g., redirect to login page, show success message)
       } else {

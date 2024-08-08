@@ -3,6 +3,9 @@ const teacherModel = require('../models/userModel/teacherModel');
 
 
 exports.registerUser = async (req, res, next) => {
+
+
+
     try {
         const { role, ...userData } = req.body;
 

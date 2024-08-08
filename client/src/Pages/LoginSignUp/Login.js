@@ -58,7 +58,9 @@ const Login = () => {
       if (response.ok) {
         console.log('Login successfully', data);
 
-         navigate('/');
+         //store the userinformation in local storage 
+         localStorage.setItem("userinfo", JSON.stringify({ email: form.email }));
+         navigate('/home');
 
       } else {
         console.error('Error submitting form', data);

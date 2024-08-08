@@ -31,10 +31,27 @@ exports.Login=async(req,res)=>{
         if(!LSuser || !(LSuser.comparePassword(password))){
             return res.status(401).json({ error: "Invalid credentials" });
         }
+        const token = jwt.sign({ id: LSuser._id }, process.env.JWT_SECRET, {
+            expiresIn: "1h",
 
-        res.status(201).json({ message: "User login" });
+         });
+       res.status(201).json({ token, message: "User login" });
 
     } catch (error) {
         res.status(400).json({ error: error.message });
     }
 }
+exports.getUserByEmail = async (req, res) => {
+  try {
+    const { email } = req.params;
+    const additionalFilters = req.body;
+
+    const query = { email, ...additionalFilters };
+
+    const result = await LSModal.findOne(query);
+    res.status(200).json(result);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Failed to fetch" });
+  }
+};

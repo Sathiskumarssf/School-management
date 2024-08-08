@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Navbar from "./components/Navbar/Navbar";
+import Home from "./Pages/home/Home"
 import Footer from "./components/Footer/Footer";
 import SignUp from './Pages/LoginSignUp/SignUp';
 import Login from './Pages/LoginSignUp/Login';
@@ -15,6 +15,7 @@ const App = () => {
           <Route path="/" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
            <Route path="/add-details" element={<AddDetails/>} />
+           <Route path="/home" element={<Home/>} />
         </Routes>
         <Footer />
       </div>
