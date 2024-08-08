@@ -12,7 +12,7 @@ function Navbar() {
         <div className="flex items-center space-x-2">
           <img src={logo} alt="Student Management Logo" className="w-8 h-8" />
           <Link to="/" className="text-white text-2xl font-bold">
-            Student Management
+            Student Managemen
           </Link>
           
         </div>
