@@ -1,11 +1,9 @@
- 
+
 import React, { useState, useEffect } from "react";
 import { useLocation } from 'react-router-dom';// using for get token 
 import axios from "axios";
 import "./addDetails.css";
 import {useNavigate } from 'react-router-dom';
- 
- 
 
 const AddDetails = () => {
    const navigate = useNavigate();//inbuilt 
@@ -72,6 +70,7 @@ const AddDetails = () => {
     firstName: "",
     lastName: "",
     studentNumber: "",
+    // teacherId: "",
     gender: "",
     dob: "",
     fathersName: "",
@@ -79,10 +78,7 @@ const AddDetails = () => {
     email: "",
     phone: "",
     address: "",
- 
     role:userDetails.role,
- 
- 
   });
 
   const handleChange = (e) => {
@@ -99,20 +95,28 @@ const AddDetails = () => {
       .post("http://localhost:5000/api/v1/register", profileData)
       .then((response) => {
         alert("Profile updated successfully!");
- 
         console.log("profile updated succesfully")
         localStorage.setItem("userinfo", JSON.stringify({ email: profileData.email }));
         navigate('/home');
- 
-    
+        
       })
       .catch((error) => {
         console.error("There was an error updating the profile data!", error);
       });
   };
 
+  // useEffect(() => {
+  //   axios
+  //     .get("http://localhost:5000/user/new")
+  //     .then((response) => {
+  //       setProfileData(response.data);
+  //     })
+  //     .catch((error) => {
+  //       console.error("There was an error fetching the profile data!", error);
+  //     });
+  // }, []);
+
   return (
- 
     <>
       {userDetails && userDetails.role === "teacher" ? (
         <div className="box">
@@ -121,40 +125,31 @@ const AddDetails = () => {
             <div className="user-details">
               <div className="input-box">
                 <span className="details">First Name:</span>
- 
- 
                 <input
                   type="text"
                   name="firstName"
                   placeholder="Enter your first name"
                   value={profileData.firstName}
                   onChange={handleChange}
- 
                 />
               </div>
               <div className="input-box">
                 <span className="details">Last Name:</span>
- 
                 <input
                   type="text"
                   name="lastName"
                   placeholder="Enter your last name"
                   value={profileData.lastName}
-    
-              onChange={handleChange}
-                 />
+                  onChange={handleChange}
+                />
               </div>
               <div className="gender-details">
                 <span className="gender-title">Gender:</span>
- 
- 
                 <select
                   name="gender"
                   value={profileData.gender}
                   onChange={handleChange}
- 
                   className="options"
- 
                 >
                   <option value="">Please select one…</option>
                   <option value="female">Female</option>
@@ -163,53 +158,43 @@ const AddDetails = () => {
                   <option value="prefer-not-to-answer">Prefer not to answer</option>
                 </select>
               </div>
- 
               <div className="input-box">
                 <span className="details">DOB:</span>
-=======
- 
                 <input
                   type="date"
                   name="dob"
                   value={profileData.dob}
                   onChange={handleChange}
- 
                 />
               </div>
               <div className="input-box">
                 <span className="details">Email:</span>
- 
                 <input
                   type="email"
                   name="email"
                   placeholder="Enter your email"
                   value={profileData.email}
                   onChange={handleChange}
- 
                 />
               </div>
               <div className="input-box">
                 <span className="details">Phone:</span>
- 
                 <input
                   type="text"
                   name="phone"
                   placeholder="Enter your phone number"
                   value={profileData.phone}
                   onChange={handleChange}
- 
                 />
               </div>
               <div className="input-box">
                 <span className="details">Address:</span>
- 
                 <input
                   type="text"
                   name="address"
                   placeholder="Enter your address"
                   value={profileData.address}
                   onChange={handleChange}
- 
                 />
               </div>
             </div>
@@ -225,26 +210,22 @@ const AddDetails = () => {
             <div className="user-details">
               <div className="input-box">
                 <span className="details">First Name:</span>
- 
                 <input
                   type="text"
                   name="firstName"
                   placeholder="Enter your first name"
                   value={profileData.firstName}
                   onChange={handleChange}
- 
                 />
               </div>
               <div className="input-box">
                 <span className="details">Last Name:</span>
- 
                 <input
                   type="text"
                   name="lastName"
                   placeholder="Enter your last name"
                   value={profileData.lastName}
                   onChange={handleChange}
- 
                 />
               </div>
               <div className="input-box">
@@ -279,14 +260,11 @@ const AddDetails = () => {
               </div>
               <div className="gender-details">
                 <span className="gender-title">Gender:</span>
- 
                 <select
                   name="gender"
                   value={profileData.gender}
                   onChange={handleChange}
- 
                   className="options"
- 
                 >
                   <option value="">Please select one…</option>
                   <option value="female">Female</option>
@@ -295,53 +273,43 @@ const AddDetails = () => {
                   <option value="prefer-not-to-answer">Prefer not to answer</option>
                 </select>
               </div>
- 
               <div className="input-box">
                 <span className="details">DOB:</span>
- 
- 
                 <input
                   type="date"
                   name="dob"
                   value={profileData.dob}
                   onChange={handleChange}
- 
                 />
               </div>
               <div className="input-box">
                 <span className="details">Email:</span>
- 
                 <input
                   type="email"
                   name="email"
                   placeholder="Enter your email"
                   value={profileData.email}
                   onChange={handleChange}
- 
                 />
               </div>
               <div className="input-box">
                 <span className="details">Phone:</span>
- 
                 <input
                   type="text"
                   name="phone"
                   placeholder="Enter your phone number"
                   value={profileData.phone}
                   onChange={handleChange}
- 
                 />
               </div>
               <div className="input-box">
                 <span className="details">Address:</span>
- 
                 <input
                   type="text"
                   name="address"
                   placeholder="Enter your address"
                   value={profileData.address}
                   onChange={handleChange}
- 
                 />
               </div>
             </div>
@@ -353,8 +321,6 @@ const AddDetails = () => {
       ) : (
         <p>Loading...</p>
       )}
- 
- 
     </>
   );
 };

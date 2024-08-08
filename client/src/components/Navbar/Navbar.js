@@ -1,3 +1,4 @@
+
 // src/components/Navbar.js
 import React from "react";
 import { Link } from "react-router-dom";
@@ -6,15 +7,13 @@ import logo from "../../assets/logo.png"
 
 function Navbar() {
   return (
- 
     <nav className="bg-customColor2 w-full fixed z-50 p-4">
- 
       <div className="container mx-auto flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center space-x-2">
-          <img src={logo} alt="Student Management Logo" className="w-14 h-14" />
+          <img src={logo} alt="Student Management Logo" className="w-8 h-8" />
           <Link to="/" className="text-white text-2xl font-bold">
-            Student Managemen
+            Student Management
           </Link>
           
         </div>
@@ -23,12 +22,6 @@ function Navbar() {
         <div className="hidden md:flex space-x-4">
           <Link to="/about" className="text-white hover:text-gray-200">
             About
-          </Link>
-          <Link to="/contect" className="text-white hover:text-gray-200">
-            Contect
-          </Link>
-          <Link to="/about" className="text-white hover:text-gray-200">
-            servises
           </Link>
          
          
