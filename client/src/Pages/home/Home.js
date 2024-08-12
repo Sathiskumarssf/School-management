@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import axios from "axios";
+import UpcomingEvents from "../UpcomingEvents";
 
 const Home = () => {
    const [userDetails,setUserDetails]=useState({})
@@ -14,6 +15,10 @@ const Home = () => {
     role:userDetails.role,
   });
 
+      const [currentSection, setCurrentSection] = useState("Timetable");
+      const [currentGrade, setCurrentGrade] = useState( '6');
+      const [currentDivision, setCurrentDivision] = useState('B');
+
      useEffect(() => {
      const fetchUserDetails = async () => {
       try {
@@ -21,7 +26,7 @@ const Home = () => {
         if (userinfo && userinfo.email) {
           const email = userinfo.email;
           const response = await axios.get(
-            `http://localhost:5000/api/v1/getUserByEmail/${email}`
+            `http://localhost:5000/api/v1/findusergrade/${email}`
           );
           if (response.data) {
             setUserDetails(response.data);
@@ -31,7 +36,8 @@ const Home = () => {
               role: response.data.role // Update role based on response
             }));
             console.log('User details:', response.data);
-            console.log(response.data.role)
+            setCurrentGrade(response.data.grade);
+            setCurrentDivision(response.data.devition);
           }
         } else {
           console.error("No user info found in local storage");
@@ -48,9 +54,7 @@ const Home = () => {
 
 
 
-  const [currentSection, setCurrentSection] = useState("Timetable");
-  const [currentGrade, setCurrentGrade] = useState("6");
-  const [currentDivision, setCurrentDivision] = useState("B");
+ 
 
   const timetableData = {
     "6": {
@@ -135,7 +139,7 @@ const Home = () => {
 
   const sections = {
     Timetable: renderTimetable(currentGrade, currentDivision),
-    "Upcoming events": <div>Upcoming Events Content</div>,
+    "Upcoming events": <UpcomingEvents/>,
     "Your Details": <div>Your Details Content</div>,
     "Teachers informations": <div>Teachers Information Content</div>
   };

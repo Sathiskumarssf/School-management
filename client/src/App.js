@@ -9,6 +9,7 @@ import Home from "./Pages/home/Home";
 import Login from "./Pages/LoginSignUp/Login";
 import AboutPage from "./Pages/AboutPage";
 import Contectpage from "./Pages//ContactPage";
+import Services from './Pages/ServicesPage';
  
  
  
@@ -28,6 +29,8 @@ const App = () => {
           <Route path="/contect" element={<Contectpage />} />
           <Route path="/home" element={<Home />} />
           <Route path="/AddDetails" element={<AddDetails />} />
+          <Route path="/services" element={<Services />} />
+          
           
  
         </Routes>

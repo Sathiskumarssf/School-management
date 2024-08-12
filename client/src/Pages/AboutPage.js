@@ -1,10 +1,13 @@
 
 import React from "react";
+import Navbar from "../components/Navbar/Navbar";
+import Footer from "../components/Footer/Footer";
 
 
 const AboutPage = () => {
   return (
     <div className="min-h-screen bg-gray-100 p-8">
+      <Navbar/>
       <div className="container mx-auto bg-white p-8 rounded-lg shadow-lg">
         <h1 className="text-3xl font-bold mb-6 text-center">About Us</h1>
 
@@ -87,6 +90,7 @@ const AboutPage = () => {
           </p>
         </section>
       </div>
+      <Footer/>
     </div>
   );
 };
