@@ -20,6 +20,9 @@ function Navbar() {
 
         {/* Navbar Links */}
         <div className="hidden md:flex space-x-4">
+          <Link to="/home" className="text-white hover:text-gray-200">
+            home
+          </Link>
           <Link to="/about" className="text-white hover:text-gray-200">
             About
           </Link>
@@ -27,7 +30,7 @@ function Navbar() {
          Contect
           </Link>
           <Link to="/services" className="text-white hover:text-gray-200">
-            About
+            Services
           </Link>
          
          

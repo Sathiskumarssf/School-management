@@ -3,6 +3,8 @@
 
 const jwt = require('jsonwebtoken');
 const LSModal = require('../models/LSModals/LSModal');
+ 
+const studentModel = require('../models/userModel/studentModel');
 require('dotenv').config();
 
 
@@ -56,6 +58,20 @@ exports.getUserByEmail = async (req, res) => {
     const query = { email, ...additionalFilters };
 
     const result = await LSModal.findOne(query);
+    res.status(200).json(result);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Failed to fetch" });
+  }
+};
+exports.findusergrade = async (req, res) => {
+  try {
+    const { email } = req.params;
+    const additionalFilters = req.body;
+
+    const query = { email, ...additionalFilters };
+
+    const result = await studentModel.findOne(query);
     res.status(200).json(result);
   } catch (error) {
     console.error(error);

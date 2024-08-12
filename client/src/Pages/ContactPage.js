@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com"; // Import emailjs
+import Navbar from "../components/Navbar/Navbar";
+import Footer from "../components/Footer/Footer";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -57,6 +59,7 @@ const ContactPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 p-8">
+      <Navbar/>
       <div className="container mx-auto bg-white p-8 rounded-lg shadow-lg">
         <h1 className="text-3xl font-bold mb-6 text-center">Contact Us</h1>
         <div className="flex flex-col md:flex-row gap-8">
@@ -163,6 +166,7 @@ const ContactPage = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };

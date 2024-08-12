@@ -80,9 +80,9 @@ const Login = () => {
         <div className="text-white text-xl font-bold">SCHool</div>
 
         <div className="hidden md:flex space-x-4">
-          <a href="#about" className="text-white hover:text-gray-200">About</a>
-          <a href="#services" className="text-white hover:text-gray-200">Services</a>
-          <a href="#contact" className="text-white hover:text-gray-200">Contact</a>
+          <a href="/about" className="block text-white hover:text-gray-200 p-2">About</a>
+          <a href="/services" className="block text-white hover:text-gray-200 p-2">Services</a>
+          <a href="/contect" className="block text-white hover:text-gray-200 p-2">Contact</a>
         </div>
         <div className="md:hidden">
           <button onClick={toggleMenu} className="text-white focus:outline-none">
@@ -94,9 +94,9 @@ const Login = () => {
       </div>
       {isOpen && (
         <div className="md:hidden">
-          <a href="http://localhost:3000/about" className="block text-white hover:text-gray-200 p-2">About</a>
-          <a href="http://localhost:3000/services" className="block text-white hover:text-gray-200 p-2">Services</a>
-          <a href="http://localhost:3000/contect" className="block text-white hover:text-gray-200 p-2">Contact</a>
+          <a href="/about" className="block text-white hover:text-gray-200 p-2">About</a>
+          <a href="/services" className="block text-white hover:text-gray-200 p-2">Services</a>
+          <a href="/contect" className="block text-white hover:text-gray-200 p-2">Contact</a>
         </div>
       )}
     </nav>

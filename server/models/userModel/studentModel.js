@@ -14,8 +14,9 @@ const studentSchema= mongoose.Schema({
     },
     studentNumber:{
         type:String,
-        required:[true, "Please enter your student number"]
+        required:[false]
     },
+    
 
     grade:{
         type:String,
@@ -50,8 +51,9 @@ const studentSchema= mongoose.Schema({
     },
     address:{
         type:String,
-        required:[true,"Please enter your email address"]
+        required:[true,"Please enter your address."]
     },
+    
     fathersName:{
         type:String,
     },
